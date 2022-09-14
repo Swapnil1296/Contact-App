@@ -1,6 +1,9 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import React from "react";
+import { Link } from "react-router-dom";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 const ContactList = () => {
   return (
     <>
@@ -9,9 +12,9 @@ const ContactList = () => {
           <div className="grid">
             <div className="row">
               <div className="col">
-                <p className="h3">
+                <p className="h3 fw-bold">
                   Contact Manager
-                  <Link to={'/contact/add'} className="btn btn-primary ms-2">
+                  <Link to={"/contact/add"} className="btn btn-primary ms-2">
                     <AddCircleOutlineIcon />
                     New
                   </Link>
@@ -59,6 +62,7 @@ const ContactList = () => {
             <div className="col-md-6">
               <div className="card">
                 <div className="card-body">
+                  <div className="row d-flex align-items-center justify-content-around ">
                   <div className="col-md-4">
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
@@ -67,9 +71,25 @@ const ContactList = () => {
                     />
                   </div>
                   <div className="col-md-7">
-                    <ul className='list-group'></ul>
+                    <ul className="list-group">
+                      <li className="list-group-item list-group-item-action">
+                        Name: <span className="fw-bold">Swapnil</span>
+                      </li>
+                      <li className="list-group-item list-group-item-action">
+                        Mobile: <span className="fw-bold">7385476339</span>
+                      </li>
+                      <li className="list-group-item list-group-item-action">
+                        Email: <span className="fw-bold">Swapnil.langdage@gmail.com</span>
+                      </li>
+                    </ul>
                   </div>
-                  <div className="col-md-1"></div>
+                  <div className="col-md-1 d-flex flex-column align-items-center">
+                    <Link to={`/contact/view/:contactId`} className="btn btn-warning my-1">  <RemoveRedEyeIcon/></Link>
+                    <Link to={`/contact/edit/:contactId`} className="btn btn-primary my-1">  <EditIcon/></Link>
+                    <button  className="btn btn-danger my-1">  <DeleteIcon/></button>
+                  
+                  </div>
+                  </div>
                 </div>
               </div>
             </div>
